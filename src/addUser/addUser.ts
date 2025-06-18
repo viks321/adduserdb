@@ -15,8 +15,9 @@ app.post('/add-user', async (req, res) => {
     const newUser = new userData({ username, age, email });
     await newUser.save();
     console.log(newUser)
+    const valuesArray = Object.values(newUser);
 
-    res.status(201).json({ message: 'User saved!', user: newUser });
+    res.status(201).json({ message: 'User saved!', user: valuesArray });
   } catch (err) {
     res.status(500).json({ error: err });
   }
