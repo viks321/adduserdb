@@ -15,9 +15,8 @@ app.post('/add-user', async (req, res) => {
     const newUser = new userData({ username, age, email });
     await newUser.save();
     console.log(newUser)
-    const valuesArray = Object.values(newUser);
 
-    res.status(201).json({ message: 'User saved!', user: valuesArray });
+    res.status(201).json({ message: 'User saved!', user: newUser });
   } catch (err) {
     res.status(500).json({ error: err });
   }
@@ -25,7 +24,8 @@ app.post('/add-user', async (req, res) => {
 
 app.get('/users', async (req, res) => {
   const users = await userData.find();
-  res.json(users);
+  const valuesArray = Object.values(users);
+  res.json({allusers: valuesArray});
 });
 
 const PORT = process.env.PORT || 3000;

@@ -43,7 +43,7 @@ var app = (0, express_1.default)();
 app.use(express_1.default.json());
 (0, connect_1.default)();
 app.post('/add-user', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, age, email, newUser, valuesArray, err_1;
+    var _a, username, age, email, newUser, err_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -54,8 +54,7 @@ app.post('/add-user', function (req, res) { return __awaiter(void 0, void 0, voi
             case 1:
                 _b.sent();
                 console.log(newUser);
-                valuesArray = Object.values(newUser);
-                res.status(201).json({ message: 'User saved!', user: valuesArray });
+                res.status(201).json({ message: 'User saved!', user: newUser });
                 return [3 /*break*/, 3];
             case 2:
                 err_1 = _b.sent();
@@ -66,13 +65,14 @@ app.post('/add-user', function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); });
 app.get('/users', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var users;
+    var users, valuesArray;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, user_1.userData.find()];
             case 1:
                 users = _a.sent();
-                res.json(users);
+                valuesArray = Object.values(users);
+                res.json({ allusers: valuesArray });
                 return [2 /*return*/];
         }
     });
