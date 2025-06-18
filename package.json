@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev src/addUser/addUser.ts"
+    "dev": "ts-node-dev src/addUser/addUser.ts",
+    "build": "tsc",
+    "start": "node dist/addUser/addUser.js"
   },
   "dependencies": {
     "express": "^4.18.2",
