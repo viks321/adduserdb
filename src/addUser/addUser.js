@@ -75,6 +75,7 @@ app.get('/users', function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); });
-app.listen(3000, function () {
-    console.log('🚀 Server running on http://localhost:3000');
+var PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+    console.log("\uD83D\uDE80 Server running on http://localhost:".concat(PORT));
 });
