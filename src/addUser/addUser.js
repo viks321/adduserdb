@@ -53,6 +53,7 @@ app.post('/add-user', function (req, res) { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, newUser.save()];
             case 1:
                 _b.sent();
+                console.log(newUser);
                 res.status(201).json({ message: 'User saved!', user: newUser });
                 return [3 /*break*/, 3];
             case 2:
