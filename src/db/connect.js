@@ -43,7 +43,7 @@ var connectDB = function () { return __awaiter(void 0, void 0, void 0, function 
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, mongoose_1.default.connect('mongodb+srv://vikashraval995:q5EKvXW7AoExUQcG@cluster0.jdj9wvu.mongodb.net/')];
+                return [4 /*yield*/, mongoose_1.default.connect('mongodb+srv://vikashraval995:q5EKvXW7AoExUQcG@cluster0.jdj9wvu.mongodb.net/vikasDB?retryWrites=true&w=majority')];
             case 1:
                 _a.sent();
                 console.log('✅ Connected to MongoDB');
