@@ -43,24 +43,31 @@ var app = (0, express_1.default)();
 app.use(express_1.default.json());
 (0, connect_1.default)();
 app.post('/add-user', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, username, age, email, newUser, err_1;
+    var _a, username, age, email, userEmail, newUser, err_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 5, , 6]);
                 _a = req.body, username = _a.username, age = _a.age, email = _a.email;
+                return [4 /*yield*/, user_1.userData.find];
+            case 1:
+                userEmail = _b.sent();
+                if (!(userEmail.arguments.email === "vikas@gmail.com")) return [3 /*break*/, 3];
                 newUser = new user_1.userData({ username: username, age: age, email: email });
                 return [4 /*yield*/, newUser.save()];
-            case 1:
-                _b.sent();
-                console.log(newUser);
-                res.status(201).json({ message: 'User saved!', user: newUser });
-                return [3 /*break*/, 3];
             case 2:
+                _b.sent();
+                res.status(201).json({ message: 'User saved!', user: newUser });
+                return [3 /*break*/, 4];
+            case 3:
+                res.status(400).json({ message: 'User already saved!' });
+                _b.label = 4;
+            case 4: return [3 /*break*/, 6];
+            case 5:
                 err_1 = _b.sent();
                 res.status(500).json({ error: err_1 });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); });
